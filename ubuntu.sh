@@ -1,9 +1,18 @@
+#!/bin/bash
+# Ubuntu 开发环境一键配置脚本
+# 使用方式: sudo bash ubuntu.sh
+
+set -e  # 遇到错误立即退出
+
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
+# 更新软件源
+apt update -y
+
 # python-dev
-apt install python-dev
-apt install python3-dev
+apt install -y python-dev 2>/dev/null || true  # python-dev 在某些系统已废弃
+apt install -y python3-dev
 
 # pip
 apt install python3-pip -y
